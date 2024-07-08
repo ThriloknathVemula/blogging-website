@@ -5,6 +5,7 @@ import { Signin } from './pages/Signin'
 
 function App() {
   return(
+    <>
     <BrowserRouter>
       <Routes>
         <Route path='/signup' element={<Signup/>}/>
@@ -12,6 +13,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
       </Routes>
     </BrowserRouter>
+    </>
   )
 }
 
