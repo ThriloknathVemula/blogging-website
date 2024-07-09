@@ -13,7 +13,7 @@ export const Appbar = ()=>{
                     <p>New</p>
                     <FaSquarePlus/>
                 </Link>
-                <Avatar authorName={null}/>
+                <Avatar big={true} authorName={null}/>
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { BACKEND_URL } from "../config"
 import axios from "axios"
 
-type authorName = {
+export type authorName = {
     name:string | null;
 }
 
@@ -41,4 +41,30 @@ export const useBlogs = () =>{
         loading,
         blogs
     };
+}
+
+export const useBlogById = ({id}:{id:string}) =>{
+    const [loading,setLoading] = useState(true);
+    const [blogDetails,setBlogDetails] = useState<Blog>();
+
+    useEffect(()=>{
+        const getBlogDetails = async()=>{
+            const token = localStorage.getItem("token");
+            const response = await axios.get(`${BACKEND_URL}/api/v1/blog/${id}`,{
+                headers:{
+                    Authorization:`Bearer ${token}`
+                }
+            });
+            setBlogDetails(response.data);
+            setLoading(false);
+        }
+        setTimeout(()=>{
+            getBlogDetails()
+        },3000)
+    },[]);
+
+    return {
+        loading,
+        blogDetails
+    }
 }

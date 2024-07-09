@@ -10,7 +10,7 @@ export const BlogCard = ({title,content,author,id}: Blog)=>{
         <Link to={`/blogs/${id}`}>
             <div className="border-b-2 border-black w-screen max-w-screen-md p-2">
                 <div className="blog-card-header flex items-center gap-3 mb-1">
-                    <Avatar authorName={authorName}/>
+                    <Avatar big={false} authorName={authorName}/>
                     <p className="font-semibold text-md">{authorName===null ? "Anonymous" : `${authorName}`}</p>
                     <p className="text-slate-400">07-07-2024</p>
                 </div>
