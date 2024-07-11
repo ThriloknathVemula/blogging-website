@@ -1,11 +1,14 @@
 import { ChangeEvent, useState } from "react";
 import { Appbar } from "../components/Appbar"
 import { BACKEND_URL } from "../config";
+import { useNavigate } from "react-router-dom";
 
 
 export const Publish = ()=>{
     const [title,setTitle] = useState("");
     const [content,setContent] = useState("");
+
+    const navigate = useNavigate();
     
     const changeTitle = (e:ChangeEvent<HTMLInputElement>)=>{
         setTitle(e.target.value);
@@ -16,6 +19,7 @@ export const Publish = ()=>{
     }
 
     const sendPostInputs = async()=>{
+        try {
         const token = localStorage.getItem("token");
         const postInputs = {title,content};
         const url = `${BACKEND_URL}/api/v1/blog`
@@ -26,9 +30,15 @@ export const Publish = ()=>{
             },
             body:JSON.stringify(postInputs)
         }
-        await fetch(url, options);
+        const response = await fetch(url, options);
+        const data = await response.json();
+        const blogId = data.id;
+        navigate(`/blogs/${blogId}`)
         setTitle("");
         setContent("");
+        }catch(e){
+            alert("Invalid request");
+        }
     }
     
     return(
