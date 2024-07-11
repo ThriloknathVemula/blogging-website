@@ -14,7 +14,7 @@ export const Appbar = ()=>{
 
     return(
         <div className="border-b flex justify-between p-4 md:px-10 md:py-4">
-            <Link to={'/blogs'} className="flex text-xl flex-col justify-center cursor-pointer font-semibold">
+            <Link to={'/blogs'} className="flex text-xl md:text-3xl flex-col justify-center cursor-pointer font-bold">
                 Medium
             </Link>
             <div className="flex items-center gap-4">

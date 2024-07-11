@@ -33,7 +33,7 @@ export const useBlogs = () =>{
 
         setTimeout(()=>{
             getBlogs()
-        },5000);
+        },2000);
 
     },[]);
 
@@ -60,7 +60,7 @@ export const useBlogById = ({id}:{id:string}) =>{
         }
         setTimeout(()=>{
             getBlogDetails()
-        },3000)
+        },1000)
     },[]);
 
     return {
