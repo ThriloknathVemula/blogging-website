@@ -30,9 +30,16 @@ export const Auth = ({type}:{type:"signup" | "signin"})=>{
             }
             const response = await fetch(url, options);
             const data = await response.json();
-            const {jwt} = data;
-            localStorage.setItem("token",jwt);
-            navigate('/blogs');
+            setCredentials({email:"", name:"", password:""})
+            if(data.message){
+                alert(data.message);
+                return
+            }
+            else{
+                const {jwt} = data;
+                localStorage.setItem("token",jwt);
+                navigate('/blogs');
+            }
         }catch(e){
             console.log(e)
             alert('Error while signing up')
@@ -40,7 +47,7 @@ export const Auth = ({type}:{type:"signup" | "signin"})=>{
     }
 
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col pt-5 md:pt-0">
             <div className="sign-header mb-7">
                 <h2 className="font-bold text-2xl text-black">{type==="signup" ? "Create an Account" : "Sign In"}</h2>
                 <p className="text-md text-slate-400">{type==="signup" ? 
