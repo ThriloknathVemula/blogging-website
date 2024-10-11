@@ -1,14 +1,16 @@
+import { Appbar } from "../components/Appbar";
 import { Auth } from "../components/Auth";
 import { Quote } from "../components/Quote";
 
 export const Signin = ()=>{
     return(
         <>
-            <div className="grid grid-cols-1 pt-20 md:pt-10 md:grid-cols-2 h-screen">
-                <div className="flex justify-center items-center">
+            <Appbar/>
+            <div className="grid grid-cols-1 items-center md:grid-cols-2 h-screen">
+                <div className="flex justify-center">
                     <Auth type="signin"/>
                 </div>
-                <div className="signin-quote invisible md:visible flex justify-center self-center">
+                <div className="signin-quote invisible md:visible flex justify-center">
                     <Quote/>
                 </div>
             </div>
