@@ -2,7 +2,6 @@ import { Link, useNavigate } from "react-router-dom"
 import { SignupType } from "@thriloknath/common-medium"
 import { LabelledInput } from "./LabelledInput"
 import { useState } from "react"
-import { BACKEND_URL } from "../config"
 
 
 
@@ -13,7 +12,7 @@ export const Auth = ({type}:{type:"signup" | "signin"})=>{
         password:""
     });
 
-    
+    const BACKEND_URL = process.env.BACKEND_URL;
 
     const navigate = useNavigate();
 

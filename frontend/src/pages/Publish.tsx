@@ -1,12 +1,12 @@
 import { ChangeEvent, useState } from "react";
-import { Appbar } from "../components/Appbar"
-import { BACKEND_URL } from "../config";
+import { Appbar } from "../components/Appbar";
 import { useNavigate } from "react-router-dom";
 
 
 export const Publish = ()=>{
     const [title,setTitle] = useState("");
     const [content,setContent] = useState("");
+    const BACKEND_URL = process.env.BACKEND_URL;
 
     const navigate = useNavigate();
     
