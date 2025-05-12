@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { BACKEND_URL } from "../config"
 import axios from "axios"
 
 export type authorName = {
@@ -13,11 +12,12 @@ export interface Blog {
     author: authorName;
 }
 
-
+const BACKEND_URL = process.env.BACKEND_URL;
 
 export const useBlogs = () =>{
     const [loading,setLoading] = useState(true);
     const [blogs, setBlogs] = useState<Blog[]>([])
+
     useEffect(()=>{
         const getBlogs = async()=>{
             const token = localStorage.getItem("token");
