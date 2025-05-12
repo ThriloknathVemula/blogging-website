@@ -12,7 +12,7 @@ export const Auth = ({type}:{type:"signup" | "signin"})=>{
         password:""
     });
 
-    const BACKEND_URL = process.env.BACKEND_URL;
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
     const navigate = useNavigate();
 

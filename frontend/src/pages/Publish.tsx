@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export const Publish = ()=>{
     const [title,setTitle] = useState("");
     const [content,setContent] = useState("");
-    const BACKEND_URL = process.env.BACKEND_URL;
+    const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
     const navigate = useNavigate();
     

@@ -12,7 +12,7 @@ export interface Blog {
     author: authorName;
 }
 
-const BACKEND_URL = process.env.BACKEND_URL;
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 export const useBlogs = () =>{
     const [loading,setLoading] = useState(true);
